@@ -70,7 +70,7 @@ function LandingPage() {
                     </span>
                </h1>
                <p className={'description'}>
-                    As a frontend developer with 2.8+ years of expertise in React JS, React Native Next.js, committed to
+                    As a frontend developer with 3.5+ years of expertise in React JS, React Native Next.js, committed to
 pushing conventional boundaries to create innovative web and mobile solutions that
 elevate the technological experience. I
                     bring a versatile skill set and a commitment to delivering optimal user
