@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import './MyWorks.scss'
+import './myWorks.scss'
 
 function AccordionItem({ work, isActive, onToggle, index }) {
      const contentRef = useRef(null)

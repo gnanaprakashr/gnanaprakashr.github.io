@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './MyWorks.scss'
+import './myWorks.scss'
 import { myworkArr } from '@/constants/Data'
 import AccordionItem from './AccordionItem'
 
