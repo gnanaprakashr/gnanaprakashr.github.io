@@ -1,149 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
+
 .landingPageContainer {
-     scroll-snap-align: center;
      width: 100%;
      height: 100vh;
-     text-align: center;
      display: flex;
      flex-direction: column;
      align-items: center;
      justify-content: center;
-     font-family: 'Montserrat';
+     text-align: center;
+     font-family: 'Montserrat', sans-serif;
+     padding: 0 20px;
+     box-sizing: border-box;
+     overflow: hidden; // Prevent spillover animations
 
-     .welcomeText {
-          font-size: 46px;
-          color: #f7a541;
-          font-family: var(--font-montserrat);
+     .contentWrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          z-index: 2; // Above background
+          max-width: 1000px;
+          animation: fadeInUp 0.8s ease-out forwards;
+          margin-top: 15vh; // Move content down to avoid moon overlap
      }
 
-     .introText {
-          color: #fff;
-          font-family: var(--font-montserrat);
-     }
-
-     .letter {
-          color: #87ceeb;
-          // color: #fff;
-          font-size: 44px;
-          font-family: var(--font-montserrat);
-     }
-     .description {
-          margin-top: 10px;
-          width: 65%;
-          color: white;
-          font-size: 14px;
-          line-height: 25px;
-          font-family: var(--font-montserrat);
+     .titleWrapper {
+          margin: 0;
+          line-height: 1.1;
           margin-bottom: 20px;
      }
 
+     .greeting {
+          font-size: 24px;
+          color: #87ceeb;
+          font-weight: 400;
+          display: block;
+          margin-bottom: 10px;
+          opacity: 0;
+          animation: slideDown 0.8s ease-out 0.2s forwards;
+     }
+
+     .nameGradient {
+          font-size: 80px;
+          font-weight: 800;
+          background: linear-gradient(135deg, #fff 0%, #f7a541 50%, #87ceeb 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-transform: uppercase;
+          letter-spacing: -2px;
+          opacity: 0;
+          animation: scaleIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards;
+          display: inline-block;
+
+          // Fallback
+          color: #f7a541;
+     }
+
+     .description {
+          font-size: 16px;
+          color: #e0e0e0;
+          max-width: 600px;
+          line-height: 1.6;
+          margin-bottom: 40px;
+          font-weight: 300;
+          opacity: 0;
+          animation: fadeInUp 0.8s ease-out 0.6s forwards;
+     }
+
      .languages {
-          color: #d7a883;
-          display: flex;
-          align-items: center;
-          font-size: 15px;
-          font-family: var(--font-montserrat);
+          font-size: 14px;
+          color: #a5a5a5;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          margin-bottom: 50px;
+          opacity: 0;
+          animation: fadeInUp 0.8s ease-out 0.8s forwards;
 
           .line {
-               color: #fff;
-               font-size: 16px;
-               margin-inline: 10px;
+               color: #f7a541;
+               margin: 0 10px;
           }
-     }
-
-     .firstName {
-          margin-left: 15px;
-     }
-
-     .secondName {
-          margin-left: 10px;
      }
 
      .btnContainer {
           cursor: pointer;
-          margin-top: 20px;
-          color: #fff;
-          background: #3c3a72;
-          display: flex;
-          padding: 10px 15px;
-          border-radius: 5px;
-          align-items: center;
-          font-family: var(--font-montserrat);
-          justify-content: center;
-          position: relative;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          padding: 14px 40px;
+          border-radius: 50px;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+          opacity: 0;
+          animation: fadeInUp 0.8s ease-out 1s forwards;
 
           span {
-               font-size: 13px;
+               color: #fff;
+               font-size: 14px;
+               font-weight: 600;
+               text-transform: uppercase;
+               letter-spacing: 1px;
           }
-     }
-     .btnContainer:active {
-          background: #3c3a72;
-     }
-     .btnContainer:hover {
-          background: #212257;
+
+          &:hover {
+               background: rgba(247, 165, 65, 0.2);
+               border-color: #f7a541;
+               transform: translateY(-2px);
+               box-shadow: 0 10px 20px rgba(247, 165, 65, 0.15);
+          }
+
+          &:active {
+               transform: translateY(0);
+          }
      }
 
      .links {
           position: absolute;
-          right: 20px;
-          top: 10px;
-          padding: 10px;
+          right: 30px;
+          top: 30px;
           display: flex;
-          align-items: center;
-          column-gap: 25px;
+          gap: 20px;
+          z-index: 10;
+
+          a {
+               transition: transform 0.3s ease;
+
+               &:hover {
+                    transform: translateY(-3px);
+               }
+          }
 
           svg {
-               width: 25px;
-               height: 25px;
+               width: 30px;
+               height: 30px;
+               filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+
+               &:hover path {
+                    fill: #f7a541;
+                    transition: fill 0.3s ease;
+               }
           }
 
-          svg:hover path {
-               fill: #87ceeb;
-          }
-
-          .pdfIcon {
-               width: 20px;
-               height: 20px;
-          }
-
+          .pdfIcon,
           .linkedlnIcon {
-               width: 27px;
-               height: 27px;
+               width: 24px;
+               height: 24px;
           }
      }
 }
 
-@media screen and (max-width: 500px) {
+// Keyframe Animations
+@keyframes fadeInUp {
+     from {
+          opacity: 0;
+          transform: translateY(20px);
+     }
+
+     to {
+          opacity: 1;
+          transform: translateY(0);
+     }
+}
+
+@keyframes slideDown {
+     from {
+          opacity: 0;
+          transform: translateY(-20px);
+     }
+
+     to {
+          opacity: 1;
+          transform: translateY(0);
+     }
+}
+
+@keyframes scaleIn {
+     from {
+          opacity: 0;
+          transform: scale(0.9);
+     }
+
+     to {
+          opacity: 1;
+          transform: scale(1);
+     }
+}
+
+// Mobile Responsiveness
+@media screen and (max-width: 768px) {
      .landingPageContainer {
-          height: 100vh;
-          box-sizing: border-box;
-          padding-top: 160px;
-          .welcomeText {
-               font-size: 36px;
-               color: #f7a541;
-               font-family: var(--font-montserrat);
-          }
-
-          .introText {
-               color: #fff;
-               display: block;
-               font-family: var(--font-montserrat);
-          }
-
-          .letter {
-               color: #87ceeb;
-               // color: #fff;
-               font-size: 25px;
-               font-family: var(--font-montserrat);
-          }
-          .firstName {
-               color: #fff;
-               font-size: 25px;
-               margin-left: 15px;
+          .nameGradient {
+               font-size: 50px;
           }
 
           .description {
-               width: 80%;
-               font-size: 13px;
+               font-size: 15px;
+               width: 90%;
+          }
+
+          .links {
+               top: 20px;
+               right: 20px;
+          }
+     }
+}
+
+@media screen and (max-width: 480px) {
+     .landingPageContainer {
+          .greeting {
+               font-size: 18px;
+          }
+
+          .nameGradient {
+               font-size: 40px; // Responsive title
+               line-height: 1.2;
+          }
+
+          .description {
+               font-size: 14px;
+          }
+
+          .languages {
+               font-size: 12px;
+               flex-wrap: wrap;
+               justify-content: center;
+               line-height: 2;
+          }
+
+          .links {
+               position: static;
+               margin-top: 40px;
           }
      }
 }

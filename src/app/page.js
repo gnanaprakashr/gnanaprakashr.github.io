@@ -6,10 +6,12 @@ import { useEffect, useState } from 'react'
 import BallAnimation from '@/components/BallAnimation'
 import LandingPage from '@/Sections/LandingPage/LandingPage'
 import Experience from '@/Sections/experience/Experience'
+import Skills from '@/Sections/Skills/Skills'
 import MyWorks from '@/Sections/myWorks/MyWorks'
 import { myworkArr } from '@/constants/Data'
 import ProjectCard from '@/Sections/myWorks/ProjectCard'
 import Loading from './loading'
+import Contact from '@/Sections/Contact/Contact'
 
 export default function Home() {
      const [windowWidth, setWindowWidth] = useState(null)
@@ -30,21 +32,9 @@ export default function Home() {
                          <div className='container' id='sectionWrapper'>
                               <LandingPage />
                               <Experience />
-                              {windowWidth > 500 && <MyWorks />}
-                              {windowWidth <= 500 && (
-                                   <div className='workHeader' id='myworks'>
-                                        <h2>Tech odyssey</h2>
-                                        <p>Explore our tech projects, inspiring connections.</p>
-                                   </div>
-                              )}
-                              {windowWidth <= 500 &&
-                                   myworkArr.map((work, i) => {
-                                        return (
-                                             <div className='mobileWrapper' key={i}>
-                                                  <ProjectCard workData={work} />
-                                             </div>
-                                        )
-                                   })}
+                              <Skills />
+                              <MyWorks />
+                              <Contact />
                          </div>
                     </div>
                )}

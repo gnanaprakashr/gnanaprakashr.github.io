@@ -1,44 +1,240 @@
 .myWorksContainer {
+     box-sizing: border-box;
      width: 100%;
-     height: 100vh;
-     scroll-snap-align: center;
+     min-height: auto;
+     padding: 40px 5%; // Consistent spacing
+
      color: #fff;
      display: flex;
      flex-direction: column;
-     justify-content: space-evenly;
      align-items: center;
 
-     h2 {
-          font-family: var(--font-montserrat);
-          font-size: 28px;
-          color: #f7a541;
+     .titleContainer {
           text-align: center;
+          margin-bottom: 60px;
+
+          h2 {
+               font-family: var(--font-montserrat);
+               font-size: 48px;
+               color: #f7a541;
+               margin-bottom: 10px;
+               letter-spacing: -2px;
+          }
+
+          p {
+               font-size: 16px;
+               color: #888;
+               font-family: var(--font-montserrat);
+          }
      }
 
-     p {
-          margin-top: 10px;
-          font-size: 14px;
-          color: #e0e0e0;
-          font-family: var(--font-montserrat);
-     }
-     .projectsWrapper {
+     .projectsAccordion {
           width: 100%;
-          height: 63%;
+          max-width: 900px;
           display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-          margin-top: 25px;
+          flex-direction: column;
+     }
+
+     .accordionItem {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          transition: background-color 0.3s ease;
+
+          &:hover {
+               background-color: rgba(255, 255, 255, 0.02);
+          }
+
+          &.active {
+               background-color: rgba(255, 255, 255, 0.03);
+               margin-bottom: 20px; // More spacing when active
+
+               .accordionHeader {
+                    .arrow {
+                         transform: rotate(180deg);
+                         color: #f7a541;
+                    }
+
+                    h3 {
+                         color: #f7a541;
+                    }
+               }
+          }
+
+          .accordionHeader {
+               display: flex;
+               align-items: center;
+               padding: 30px 20px;
+               cursor: pointer;
+               transition: all 0.3s ease;
+
+               .projectIndex {
+                    font-size: 14px;
+                    color: #555;
+                    font-family: var(--font-montserrat);
+                    margin-right: 30px;
+                    width: 30px;
+               }
+
+               h3 {
+                    flex-grow: 1;
+                    font-size: 28px; // Big titles
+                    font-family: var(--font-montserrat);
+                    color: #fff;
+                    font-weight: 600;
+                    margin: 0;
+                    transition: color 0.3s ease;
+               }
+
+               .category {
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    color: #87ceeb;
+                    font-family: var(--font-montserrat);
+                    margin-right: 20px;
+                    letter-spacing: 1px;
+                    display: block; // Visible on desktop
+               }
+
+               .arrow {
+                    font-size: 24px;
+                    color: #555;
+                    transition: all 0.3s ease;
+               }
+          }
+
+          .accordionBody {
+               height: 0;
+               overflow: hidden;
+               transition: height 0.4s ease-out;
+
+               .bodyContent {
+                    padding: 0 20px 40px 80px; // Increased bottom padding
+               }
+
+               .description {
+                    font-size: 16px;
+                    color: #ccc;
+                    line-height: 1.6;
+                    font-family: var(--font-montserrat);
+                    margin-bottom: 20px;
+                    max-width: 90%;
+               }
+
+               .techStack {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+
+                    .techTag {
+                         font-size: 12px;
+                         color: #e0e0e0;
+                         background: rgba(255, 255, 255, 0.05);
+                         border: 1px solid rgba(255, 255, 255, 0.1);
+                         padding: 6px 12px;
+                         border-radius: 20px;
+                         font-family: var(--font-montserrat);
+                    }
+               }
+          }
      }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
      .myWorksContainer {
-          height: auto;
-          min-height: 100vh;
-          scroll-snap-align: none;
+          padding: 80px 15px;
 
-          .projectsWrapper {
-               flex-direction: column;
+          .titleContainer {
+               h2 {
+                    font-size: 32px;
+               }
+          }
+
+          .accordionItem {
+               .accordionHeader {
+                    padding: 20px 10px;
+
+                    .projectIndex {
+                         margin-right: 15px;
+                         width: 20px;
+                         font-size: 12px;
+                    }
+
+                    h3 {
+                         font-size: 18px; // Smaller specific for mobile
+                    }
+
+                    .category {
+                         display: none; // Hide category in header on mobile to save space
+                    }
+               }
+
+
+               .accordionBody {
+                    .bodyContent {
+                         padding: 10px 10px 40px 10px; // Mobile padding + bottom spacing
+                    }
+
+                    .description {
+                         font-size: 14px;
+                         max-width: 100%;
+                    }
+               }
+          }
+     }
+}
+
+@media screen and (max-width: 450px) {
+     .myWorksContainer {
+          padding: 60px 10px;
+
+          .titleContainer {
+               margin-bottom: 30px;
+
+               h2 {
+                    font-size: 24px;
+               }
+
+               p {
+                    font-size: 13px;
+               }
+          }
+
+          .accordionItem {
+               .accordionHeader {
+                    padding: 15px 5px;
+
+                    .projectIndex {
+                         margin-right: 8px;
+                         font-size: 11px;
+                         width: 15px;
+                    }
+
+                    h3 {
+                         font-size: 15px;
+                    }
+               }
+
+
+
+               .accordionBody {
+                    .bodyContent {
+                         padding-top: 5px;
+                         padding-bottom: 25px; // Smaller bottom spacing
+                    }
+
+                    .description {
+                         font-size: 13px;
+                         margin-bottom: 15px;
+                    }
+
+                    .techStack {
+                         gap: 6px;
+
+                         .techTag {
+                              font-size: 10px;
+                              padding: 4px 8px;
+                         }
+                    }
+               }
           }
      }
 }

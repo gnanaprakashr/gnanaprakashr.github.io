@@ -1,102 +1,215 @@
 .experienceContainer {
      box-sizing: border-box;
-     scroll-snap-align: center;
      width: 100%;
-     height: 100vh;
-     color: #fff;
-     padding: 5%;
+     min-height: 100vh;
+     padding: 40px 5%;
      display: flex;
      flex-direction: column;
+     align-items: center;
      justify-content: center;
+     font-family: 'Montserrat', sans-serif;
 
-     h2 {
-          font-size: 28px;
-          font-family: var(--font-montserrat);
-          color: #f7a541;
-     }
+     .titleContainer {
+          text-align: center;
+          margin-bottom: 50px;
 
-     .position {
-          color: #fff;
-          margin-top: 20px;
-          font-size: 16px;
-          font-family: var(--font-montserrat);
-
-          .company {
-               text-decoration: underline;
-               cursor: pointer;
-               color: #e0e0e0;
-               transition: color 0.2s ease-in-out;
-          }
-
-          .company:hover {
-               color: #d7a883;
-               text-decoration: none;
-          }
-     }
-
-     .address {
-          color: #e0e0e0;
-          margin-top: 10px;
-          margin-bottom: 20px;
-          font-size: 14px;
-          font-family: var(--font-montserrat);
-     }
-
-     .pointsContainer {
-          width: 60%;
-
-          li {
-               font-size: 14px;
-               margin-block: 10px;
-               line-height: 25px;
-               font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-               font-family: var(--font-roboto);
-          }
-     }
-
-     .techContainer {
-          margin-top: 20px;
-          h3 {
-               font-size: 14px;
-               font-family: var(--font-montserrat);
-               margin-bottom: 25px;
-          }
-
-          .technologies {
-               all: unset;
-               cursor: pointer;
-               border: 1.5px solid #d7a883;
-               border-radius: 5px;
-               font-weight: 600;
-               color: #d7a883;
-               margin-right: 10px;
+          h2 {
+               font-size: 48px;
+               color: #f7a541;
                margin-bottom: 10px;
-               padding: 10px 15px;
-               font-size: 12px;
-               font-family: var(--font-montserrat);
-               transition:
-                    background-color 0.2s ease-in-out,
-                    color 0.2s ease-in-out;
+               letter-spacing: -2px;
           }
 
-          .technologies:hover {
-               background-color: #d7a883;
-               color: white;
+          p {
+               font-size: 16px;
+               color: #888;
+          }
+     }
+
+     .experienceCard {
+          width: 100%;
+          max-width: 900px;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 20px;
+          padding: 40px;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          animation: slideUp 0.8s ease-out forwards;
+
+          &:hover {
+               transform: translateY(-5px);
+               box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+               border-color: rgba(247, 165, 65, 0.3);
+          }
+     }
+
+     .cardHeader {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 30px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          padding-bottom: 20px;
+
+          .roleInfo {
+               h3 {
+                    font-size: 28px;
+                    color: #fff;
+                    margin: 0 0 5px 0;
+                    font-weight: 700;
+               }
+
+               .company {
+                    font-size: 18px;
+                    color: #87ceeb;
+                    text-decoration: none;
+                    font-weight: 500;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                         color: #f7a541;
+                    }
+               }
+          }
+
+          .date {
+               font-size: 14px;
+               color: #a5a5a5;
+               background: rgba(255, 255, 255, 0.05);
+               padding: 5px 15px;
+               border-radius: 20px;
+               white-space: nowrap;
+          }
+     }
+
+     .cardBody {
+          .pointsContainer {
+               padding-left: 20px;
+               margin-bottom: 30px;
+
+               li {
+                    color: #e0e0e0;
+                    font-size: 16px;
+                    line-height: 1.8;
+                    margin-bottom: 15px;
+                    position: relative;
+                    list-style: none;
+
+                    &::before {
+                         content: "▹";
+                         position: absolute;
+                         left: -25px;
+                         color: #f7a541;
+                    }
+               }
+          }
+
+          .techContainer {
+               h4 {
+                    font-size: 14px;
+                    color: #a5a5a5;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    margin-bottom: 15px;
+               }
+
+               .techGrid {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+               }
+
+               .techTag {
+                    font-size: 13px;
+                    color: #87ceeb;
+                    background: rgba(135, 206, 235, 0.1);
+                    border: 1px solid rgba(135, 206, 235, 0.2);
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    font-weight: 500;
+
+                    &:hover {
+                         background: rgba(135, 206, 235, 0.2);
+                         transform: translateY(-2px);
+                         color: #fff;
+                    }
+               }
           }
      }
 }
 
-@media screen and (max-width: 500px) {
+@keyframes slideUp {
+     from {
+          opacity: 0;
+          transform: translateY(30px);
+     }
+
+     to {
+          opacity: 1;
+          transform: translateY(0);
+     }
+}
+
+// Mobile Responsiveness
+@media screen and (max-width: 768px) {
      .experienceContainer {
-          .position {
-               font-size: 14px;
-          }
-          .address {
-               font-size: 13px;
+          padding: 60px 20px;
+          min-height: auto; // Allow growing
+
+          .titleContainer {
+               h2 {
+                    font-size: 36px;
+               }
           }
 
-          .pointsContainer {
-               width: 80%;
+          .cardHeader {
+               flex-direction: column;
+               gap: 15px;
+
+               .roleInfo h3 {
+                    font-size: 24px;
+               }
+          }
+     }
+}
+
+@media screen and (max-width: 480px) {
+     .experienceContainer {
+          .titleContainer h2 {
+               font-size: 28px;
+          }
+
+          .experienceCard {
+               padding: 25px;
+          }
+
+          .cardHeader {
+               .roleInfo h3 {
+                    font-size: 20px;
+               }
+
+               .company {
+                    font-size: 16px;
+               }
+
+               .date {
+                    font-size: 12px;
+               }
+          }
+
+          .cardBody {
+               .pointsContainer li {
+                    font-size: 14px;
+               }
+
+               .techTag {
+                    font-size: 11px;
+                    padding: 6px 12px;
+               }
           }
      }
 }
