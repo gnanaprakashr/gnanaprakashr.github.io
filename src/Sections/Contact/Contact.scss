@@ -1,0 +1,229 @@
+.contact-section {
+  padding: 40px 5%;
+  background-color: transparent;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+  margin-block: 15vh;
+  font-family: var(--font-montserrat, sans-serif); // Use variable if available, fallback to sans
+
+  .contact-container {
+    width: 100%;
+    max-width: 900px; // Slightly wider to accommodate side-by-side
+    background: rgba(255, 255, 255, 0.03); // Lighter glass
+    backdrop-filter: blur(16px); // Stronger blur
+    -webkit-backdrop-filter: blur(16px);
+    padding: 0; // Removed padding here, managing in children
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden; // For border radius
+
+    .contact-content-wrapper {
+      display: flex;
+      flex-direction: row;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+
+    .contact-info {
+      flex: 1;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.2); // Slightly darker side
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .contact-desc {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #ccc;
+        margin-bottom: 2rem;
+      }
+
+      .contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .detail-item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: #e0e0e0;
+          font-size: 0.95rem;
+
+          a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+              color: #f7a541; // Accent color from other css
+            }
+          }
+        }
+      }
+    }
+
+    .contact-form {
+      flex: 1.5;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .form-row {
+        display: flex;
+        gap: 20px; // Reduced gap to ensure fit
+        flex-wrap: nowrap; // Force side-by-side on desktop
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+        min-width: 0; // Allow inputs to shrink to fit row
+
+        label {
+          font-size: 0.85rem;
+          color: #aaa;
+          font-weight: 500;
+          margin-left: 4px;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          max-width: 100%; // Ensure it doesn't overflow
+          box-sizing: border-box; // Include padding/border in width calculation!
+          padding: 12px 16px;
+          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.05);
+          color: #fff;
+          font-size: 0.95rem;
+          font-family: inherit;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          outline: none;
+
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+          }
+
+          // Fix for autofill background
+          &:-webkit-autofill,
+          &:-webkit-autofill:hover,
+          &:-webkit-autofill:focus,
+          &:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px #2a2a2a inset !important; // Match dark theme
+            -webkit-text-fill-color: white !important;
+            transition: background-color 5000s ease-in-out 0s;
+          }
+
+          &:focus {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+          }
+        }
+
+        textarea {
+          resize: vertical;
+          min-height: 100px;
+        }
+      }
+
+      .submit-btn {
+        margin-top: 10px;
+        padding: 14px 28px;
+        border-radius: 12px;
+        border: none;
+        background: #fff;
+        color: #000;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        align-self: flex-start; // Don't stretch full width
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+          background: #f0f0f0;
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+
+        &:disabled {
+          background: #555;
+          color: #888;
+          cursor: not-allowed;
+          transform: none;
+        }
+      }
+
+      .status-msg {
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-top: 5px;
+
+        &.success {
+          color: #4caf50;
+        }
+
+        &.error {
+          color: #ff6b6b;
+        }
+      }
+    }
+  }
+
+  // Mobile Responsiveness
+  @media (max-width: 768px) {
+    padding: 80px 16px; // More top padding for nav/header clearance
+
+    .contact-container {
+      max-width: 500px;
+
+      .contact-info {
+        padding: 30px;
+        text-align: center;
+
+        .contact-details {
+          justify-content: center;
+        }
+      }
+
+      .contact-form {
+        padding: 30px;
+
+        .submit-btn {
+          width: 100%; // Full width on mobile
+        }
+      }
+    }
+  }
+}

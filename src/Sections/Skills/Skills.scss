@@ -1,0 +1,152 @@
+.skillsContainer {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    .titleContainer {
+        text-align: center;
+        margin-bottom: 80px;
+        z-index: 2;
+
+        h2 {
+            font-size: 56px;
+            background: linear-gradient(180deg, #fff, #a5a5a5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            font-weight: 200;
+            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        p {
+            font-size: 16px;
+            color: #888;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+    }
+
+    .stardustGrid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 60px;
+        width: 100%;
+        max-width: 1400px;
+        z-index: 2;
+    }
+
+    .starCluster {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+        transition: all 0.5s ease;
+        animation: float 6s ease-in-out infinite;
+
+        &:hover {
+            .clusterCore h3 {
+                color: #fff;
+                text-shadow: 0 0 20px rgba(247, 165, 65, 0.8), 0 0 40px rgba(247, 165, 65, 0.4);
+                transform: scale(1.1);
+            }
+        }
+
+        .clusterCore {
+            margin-bottom: 25px;
+
+            h3 {
+                font-size: 24px;
+                color: rgba(255, 255, 255, 0.7);
+                font-weight: 400;
+                transition: all 0.4s ease;
+                text-align: center;
+                letter-spacing: 1px;
+                cursor: default;
+            }
+        }
+
+        .orbitingSkills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+
+            .starSkill {
+                font-size: 14px;
+                color: #add8e6;
+                padding: 8px 16px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 20px;
+                backdrop-filter: blur(2px);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                transition: all 0.3s ease;
+                opacity: 0.7;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.15);
+                    border-color: rgba(255, 255, 255, 0.3);
+                    color: #fff;
+                    box-shadow: 0 0 15px rgba(173, 216, 230, 0.4);
+                    transform: translateY(-3px) scale(1.05) !important;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+// Staggered floating for variety
+.starCluster:nth-child(even) {
+    animation-duration: 7s;
+    animation-delay: 1s;
+}
+
+.starCluster:nth-child(3n) {
+    animation-duration: 8s;
+    animation-delay: 2s;
+}
+
+
+// Responsive Design
+@media screen and (max-width: 768px) {
+    .skillsContainer {
+        padding: 60px 20px;
+
+        .titleContainer h2 {
+            font-size: 42px;
+        }
+
+        .stardustGrid {
+            gap: 40px;
+        }
+
+        .starCluster {
+            width: 100%;
+        }
+    }
+}

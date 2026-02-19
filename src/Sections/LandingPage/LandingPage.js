@@ -38,55 +38,26 @@ function LandingPage() {
 
      return (
           <div className='landingPageContainer'>
-               <h1>
-                    <span className='welcomeText'>Hi{windowWidth <= 500 ? ',' : ''}</span>
-                    <span className='introText'>{windowWidth > 500 ? ',  I am' : ''}</span>
-                    <span className='firstName'>
-                         {windowWidth <= 500 && (
-                              <span
-                                   className='introText'
-                                   style={{ marginRight: '10px', fontSize: '21px' }}
-                              >
-                                   {' '}
-                                   I am
-                              </span>
-                         )}
-                         {['G', 'N', 'A', 'N', 'A'].map((letter, i) => {
-                              return (
-                                   <span key={i} className={'letter'}>
-                                        {letter}
-                                   </span>
-                              )
-                         })}
-                    </span>
-                    <span className='secondName'>
-                         {['P', 'R', 'A', 'K', 'A', 'S', 'H'].map((letter, i) => {
-                              return (
-                                   <span key={i} className={'letter'}>
-                                        {letter}
-                                   </span>
-                              )
-                         })}
-                    </span>
-               </h1>
-               <p className={'description'}>
-                    As a frontend developer with 2.8+ years of expertise in React JS, React Native Next.js, committed to
-pushing conventional boundaries to create innovative web and mobile solutions that
-elevate the technological experience. I
-                    bring a versatile skill set and a commitment to delivering optimal user
-                    experiences. I have successfully led a team of 6 individuals
-on multiple projects, consistently delivering state-of-the-art solutions.
-               </p>
+               <div className='contentWrapper'>
+                    <h1 className='titleWrapper'>
+                         <span className='greeting'>Hi, I am</span>
+                         <br />
+                         <span className='nameGradient'>GNANA PRAKASH</span>
+                    </h1>
+                    
+                    <p className='description'>
+                         As a frontend developer with 4 years of expertise in React JS, React Native, and Next.js, I am committed to pushing conventional boundaries to create innovative web and mobile solutions. I bring a versatile skill set and a dedicated approach to delivering exceptional user experiences.
+                    </p>
 
-               <h4 className='languages'>
-                    JS <span className='line'>|</span> React <span className='line'>|</span> React
-                    Native <span className='line'>|</span> Next Js
-               </h4>
+                    <h4 className='languages'>
+                         React <span className='line'>|</span> React Native <span className='line'>|</span> Node.js <span className='line'>|</span> Angular.js
+                    </h4>
 
-               <div onClick={scrollToTarget} className={'btnContainer'} id='btnContainer'>
-                    <span>View my works</span>
+                    <div onClick={scrollToTarget} className='btnContainer' id='btnContainer'>
+                         <span>View My Works</span>
+                    </div>
                </div>
-
+               
                <div className='links'>
                     <a href='https://www.linkedin.com/in/gnana-prakash-071a231a2' target='_blank'>
                          <svg

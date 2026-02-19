@@ -33,43 +33,54 @@ function Experience() {
           },
      ]
      return (
-          <div className='experienceContainer'>
-               <h2>Work experience</h2>
-               <div className='position'>
-                    Junior software developer |{' '}
-                    <a href='https://www.bytecompass.tech/' target='_blank' className='company'>
-                         Bytecompass LLP
-                    </a>
+          <div className='experienceContainer' id='experience'>
+               <div className='titleContainer'>
+                    <h2>Work Experience</h2>
+                    <p>My professional journey and contributions.</p>
                </div>
-               <div className='address'>April 2022 - Current | Madurai, IN</div>
 
-               <ul className='pointsContainer'>
-                    <li>
-                         We have completed the development and deployment of a new website for our
-                         company. The redesigned website features enhanced animations, improved
-                         responsiveness, and a fresh new look.
-                    </li>
-                    <li>
-                         As part of team of 6 developers, I was responsible for handling all of the
-                         frontend works for the web and mobile applications
-                    </li>
-               </ul>
+               <div className='experienceCard'>
+                    <div className='cardHeader'>
+                         <div className='roleInfo'>
+                              <h3>Junior Software Developer</h3>
+                              <a 
+                                   href='https://www.bytecompass.tech/' 
+                                   target='_blank' 
+                                   rel='noreferrer'
+                                   className='company'
+                              >
+                                   @ Bytecompass LLP
+                              </a>
+                         </div>
+                         <span className='date'>April 2022 - Current</span>
+                    </div>
 
-               <div className='techContainer'>
-                    <h3>Technologies:</h3>
-                    <div style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}>
-                         {technologies.map((tech, i) => {
-                              return (
-                                   <a
-                                        className='technologies'
-                                        key={i}
-                                        href={tech.link}
-                                        target='_blank'
-                                   >
-                                        {tech.name}
-                                   </a>
-                              )
-                         })}
+                    <div className='cardBody'>
+                         <ul className='pointsContainer'>
+                              <li>
+                                   Spearheaded the development and deployment of the company&apos;s new website, enhancing animations, responsiveness, and overall visual appeal.
+                              </li>
+                              <li>
+                                   Collaborated within a team of 6 developers, taking ownership of frontend development for both web and mobile applications using React and React Native.
+                              </li>
+                         </ul>
+
+                         <div className='techContainer'>
+                              <h4>Technologies Used:</h4>
+                              <div className='techGrid'>
+                                   {technologies.map((tech, i) => (
+                                        <a
+                                             className='techTag'
+                                             key={i}
+                                             href={tech.link}
+                                             target='_blank'
+                                             rel='noreferrer'
+                                        >
+                                             {tech.name}
+                                        </a>
+                                   ))}
+                              </div>
+                         </div>
                     </div>
                </div>
           </div>
