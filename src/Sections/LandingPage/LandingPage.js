@@ -89,7 +89,7 @@ function LandingPage() {
                          </svg>
                     </a>
                     <a
-                         href='./Gnana_prakash_resume.pdf'
+                         href='./Gnana_Prakash_Software_dev.pdf'
                          download={'Gnana_Prakash_R_CV'}
                          title='Resume'
                     >
